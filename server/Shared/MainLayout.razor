@@ -1,0 +1,41 @@
+﻿@inherits ReCardle.Layouts.MainLayoutComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using ReCardle.Pages
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+
+<RadzenLayout>
+  <ChildContent>
+    <RadzenHeader>
+      <ChildContent>
+        <div class="row justify-content-start align-items-center">
+          <div class="col-6 d-flex align-items-center">
+            <RadzenSidebarToggle Click="@SidebarToggle0Click">
+            </RadzenSidebarToggle>
+            <RadzenLabel Text="ReCardle">
+            </RadzenLabel>
+          </div>
+          <div class="col-6 text-right">
+          </div>
+        </div>
+      </ChildContent>
+    </RadzenHeader>
+    <RadzenBody @ref="body0">
+      <ChildContent>
+        <RadzenContentContainer Name="main">
+        @Body
+        </RadzenContentContainer>
+      </ChildContent>
+    </RadzenBody>
+    <RadzenFooter>
+      <ChildContent>
+        <RadzenLabel Text="ReCardle, Copyright Ⓒ 2022">
+        </RadzenLabel>
+      </ChildContent>
+    </RadzenFooter>
+  </ChildContent>
+</RadzenLayout>

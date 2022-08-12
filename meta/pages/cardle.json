@@ -1,0 +1,57 @@
+{
+  "components": [
+    {
+      "components": [
+        {
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Cardle",
+          "type": "heading"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "name": "label0",
+              "text": "Cardle",
+              "type": "label"
+            }
+          ],
+          "name": "row0",
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "name": "label1",
+              "text": "Guess the car. New car each day.",
+              "type": "label"
+            }
+          ],
+          "name": "row1",
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "name": "image0",
+              "path": "${CurrentImage.Url}",
+              "type": "image"
+            }
+          ],
+          "name": "row2",
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": []
+  },
+  "layout": "Main",
+  "name": "Cardle"
+}

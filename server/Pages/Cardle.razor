@@ -1,0 +1,26 @@
+﻿@page "/"
+@page "/cardle"
+@layout MainLayout
+@inherits ReCardle.Pages.CardleComponent
+
+@using Radzen
+@using Radzen.Blazor
+<PageTitle>Cardle</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Cardle">
+    </RadzenHeading>
+    <div class="row justify-content-center">
+      <RadzenLabel Text="Cardle">
+      </RadzenLabel>
+    </div>
+    <div class="row justify-content-center">
+      <RadzenLabel Text="Guess the car. New car each day.">
+      </RadzenLabel>
+    </div>
+    <div class="row justify-content-center">
+      <RadzenImage Path="@(CurrentImage.Url)">
+      </RadzenImage>
+    </div>
+  </ChildContent>
+</RadzenContent>
