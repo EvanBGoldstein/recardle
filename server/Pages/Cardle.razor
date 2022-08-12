@@ -8,19 +8,65 @@
 <PageTitle>Cardle</PageTitle>
 <RadzenContent Container="main">
   <ChildContent>
-    <RadzenHeading Size="H1" Text="Cardle">
-    </RadzenHeading>
     <div class="row justify-content-center">
-      <RadzenLabel Text="Cardle">
+      <RadzenLabel style="font-size: 50px" Text="Re-Cardle">
       </RadzenLabel>
     </div>
     <div class="row justify-content-center">
-      <RadzenLabel Text="Guess the car. New car each day.">
+      <RadzenLabel style="font-size: 20px" Text="Guess the car. New car each day.">
       </RadzenLabel>
     </div>
     <div class="row justify-content-center">
-      <RadzenImage Path="@(CurrentImage.Url)">
+      <RadzenLabel Text="@($"{ResultTag}")" Visible="@ShowTag">
+      </RadzenLabel>
+    </div>
+    <div class="row justify-content-center">
+      <RadzenLabel style="font-size: 30px" Text="@($"{Answer}")" Visible="@(!string.IsNullOrEmpty(Answer))">
+      </RadzenLabel>
+    </div>
+    <div class="row justify-content-center">
+      <RadzenImage Path="@(CurrentImage?.Url??"")" style="height: 600px">
       </RadzenImage>
+    </div>
+    <div class="row justify-content-center">
+      <RadzenLink Path="@($"{CurrentImage?.CreditUrl??""}")" Target="_blank" Text="@(CurrentImage?.CreditText??"")">
+      </RadzenLink>
+      <RadzenLink Path="@($"{CurrentImage?.LicenseUrl??""}")" style="margin-left: 4px" Target="_blank" Text="@(CurrentImage?.LicenseText??"")">
+      </RadzenLink>
+      <RadzenLabel style="margin-left: 4px; margin-top: 2px" Text="@($"{(CurrentImage?.Source??"")}")">
+      </RadzenLabel>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 20px">
+      <div class="row justify-content-around" style="text-align: left; width: 25%">
+        <RadzenButton ButtonStyle="@(GetColor(0))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button2Click">
+        </RadzenButton>
+        <RadzenButton ButtonStyle="@(GetColor(1))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button3Click">
+        </RadzenButton>
+        <RadzenButton ButtonStyle="@(GetColor(2))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button4Click">
+        </RadzenButton>
+        <RadzenButton ButtonStyle="@(GetColor(3))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button5Click">
+        </RadzenButton>
+        <RadzenButton ButtonStyle="@(GetColor(4))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button6Click">
+        </RadzenButton>
+        <RadzenButton ButtonStyle="@(GetColor(5))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button7Click">
+        </RadzenButton>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 20px">
+      <RadzenTemplateForm TItem="dynamic">
+        <ChildContent>
+          <RadzenTextBox Placeholder="Guess - E.g. Ford GT" style="width: 381px" @bind-Value="@CurrentGuess" Name="Textbox0">
+          </RadzenTextBox>
+        </ChildContent>
+      </RadzenTemplateForm>
+      <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" style="margin-left: 10px; padding-left: 10px; padding-right: 10px" Text="Guess!" Visible="@(!GameEnded)" Click="@Button0Click">
+      </RadzenButton>
+      <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 5px; padding-left: 10px; padding-right: 10px" Text="Skip" Visible="@(!GameEnded)" Click="@Button1Click">
+      </RadzenButton>
+    </div>
+    <div class="row justify-content-center">
+      <RadzenListBox Data="@GuessList" style="margin-top: 20px; width: 336px" TextProperty="Guess" Visible="@(GuessList.Count()!=0)" Name="Listbox0" TValue="dynamic">
+      </RadzenListBox>
     </div>
   </ChildContent>
 </RadzenContent>

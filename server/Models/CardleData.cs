@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ReCardle.Models
 {
@@ -26,13 +27,18 @@ namespace ReCardle.Models
         [JsonProperty("acceptedAnswers")]
         public List<string> AcceptedAnswers { get; set; }
 
-        [JsonProperty("answerImage")]
-        public string AnswerImageUrl { get; set; }
+        public List<string> AcceptedAnswersCleaned => AcceptedAnswers.Select(a => a.Replace("-", "")).ToList();
 
-        public Image AnswerImage => new() { Url = AnswerImageUrl };
+
+        public List<string> AcceptedMakes => AcceptedAnswers.Select(s => s.Replace("-", "").Split(" ").First()).ToList();
+
+        [JsonProperty("answerImage")]
+        public string AnswerImagePath { get; set; }
+
+        public Image AnswerImage => new() { Path = AnswerImagePath };
 
         private Image[] images;
-        public Image[] Images => images ??= new Image[5] { Image1, Image2, Image3, Image4, Image5 };
+        public Image[] Images => images ??= new Image[6] { Image1, Image2, Image3, Image4, Image5, AnswerImage };
     }
 
 

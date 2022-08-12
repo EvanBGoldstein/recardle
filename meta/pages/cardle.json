@@ -3,17 +3,14 @@
     {
       "components": [
         {
-          "name": "pageTitle",
-          "size": "H1",
-          "text": "Cardle",
-          "type": "heading"
-        },
-        {
           "class": "justify-content-center",
           "components": [
             {
               "name": "label0",
-              "text": "Cardle",
+              "style": {
+                "fontSize": "50px"
+              },
+              "text": "Re-Cardle",
               "type": "label"
             }
           ],
@@ -25,6 +22,9 @@
           "components": [
             {
               "name": "label1",
+              "style": {
+                "fontSize": "20px"
+              },
               "text": "Guess the car. New car each day.",
               "type": "label"
             }
@@ -36,12 +36,381 @@
           "class": "justify-content-center",
           "components": [
             {
+              "name": "label2",
+              "text": "${ResultTag}",
+              "type": "label",
+              "visible": "${ShowTag}"
+            }
+          ],
+          "name": "row7",
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "name": "label3",
+              "style": {
+                "fontSize": "30px"
+              },
+              "text": "${Answer}",
+              "type": "label",
+              "visible": "${!string.IsNullOrEmpty(Answer)}"
+            }
+          ],
+          "name": "row8",
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
               "name": "image0",
-              "path": "${CurrentImage.Url}",
+              "path": "${CurrentImage?.Url??\"\"}",
+              "style": {
+                "height": "600px"
+              },
               "type": "image"
             }
           ],
           "name": "row2",
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "icon": "",
+              "name": "link0",
+              "path": "${CurrentImage?.CreditUrl??\"\"}",
+              "target": "_blank",
+              "text": "${CurrentImage?.CreditText??\"\"}",
+              "type": "link"
+            },
+            {
+              "icon": "",
+              "name": "link1",
+              "path": "${CurrentImage?.LicenseUrl??\"\"}",
+              "style": {
+                "marginLeft": "4px"
+              },
+              "target": "_blank",
+              "text": "${CurrentImage?.LicenseText??\"\"}",
+              "type": "link"
+            },
+            {
+              "name": "label4",
+              "style": {
+                "marginLeft": "4px",
+                "marginTop": "2px"
+              },
+              "text": "${CurrentImage?.Source??\"\"}",
+              "type": "label"
+            }
+          ],
+          "name": "row9",
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "class": "justify-content-around",
+              "components": [
+                {
+                  "buttonStyle": "${GetColor(0)}",
+                  "events": {
+                    "click": [
+                      {
+                        "name": "LoadImage",
+                        "parameters": [
+                          {
+                            "name": "i",
+                            "type": "int",
+                            "value": "0"
+                          }
+                        ],
+                        "schema": {
+                          "$ref": "#/definitions/Task",
+                          "dotnetType": "System.Threading.Tasks.Task"
+                        },
+                        "type": "invoke-method"
+                      }
+                    ]
+                  },
+                  "name": "button2",
+                  "style": {
+                    "height": "25px",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "width": "30px"
+                  },
+                  "text": "",
+                  "type": "button"
+                },
+                {
+                  "buttonStyle": "${GetColor(1)}",
+                  "events": {
+                    "click": [
+                      {
+                        "name": "LoadImage",
+                        "parameters": [
+                          {
+                            "name": "i",
+                            "type": "int",
+                            "value": "1"
+                          }
+                        ],
+                        "schema": {
+                          "$ref": "#/definitions/Task",
+                          "dotnetType": "System.Threading.Tasks.Task"
+                        },
+                        "type": "invoke-method"
+                      }
+                    ]
+                  },
+                  "name": "button3",
+                  "style": {
+                    "height": "25px",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "width": "30px"
+                  },
+                  "text": "",
+                  "type": "button"
+                },
+                {
+                  "buttonStyle": "${GetColor(2)}",
+                  "events": {
+                    "click": [
+                      {
+                        "name": "LoadImage",
+                        "parameters": [
+                          {
+                            "name": "i",
+                            "type": "int",
+                            "value": "2"
+                          }
+                        ],
+                        "schema": {
+                          "$ref": "#/definitions/Task",
+                          "dotnetType": "System.Threading.Tasks.Task"
+                        },
+                        "type": "invoke-method"
+                      }
+                    ]
+                  },
+                  "name": "button4",
+                  "style": {
+                    "height": "25px",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "width": "30px"
+                  },
+                  "text": "",
+                  "type": "button"
+                },
+                {
+                  "buttonStyle": "${GetColor(3)}",
+                  "events": {
+                    "click": [
+                      {
+                        "name": "LoadImage",
+                        "parameters": [
+                          {
+                            "name": "i",
+                            "type": "int",
+                            "value": "3"
+                          }
+                        ],
+                        "schema": {
+                          "$ref": "#/definitions/Task",
+                          "dotnetType": "System.Threading.Tasks.Task"
+                        },
+                        "type": "invoke-method"
+                      }
+                    ]
+                  },
+                  "name": "button5",
+                  "style": {
+                    "height": "25px",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "width": "30px"
+                  },
+                  "text": "",
+                  "type": "button"
+                },
+                {
+                  "buttonStyle": "${GetColor(4)}",
+                  "events": {
+                    "click": [
+                      {
+                        "name": "LoadImage",
+                        "parameters": [
+                          {
+                            "name": "i",
+                            "type": "int",
+                            "value": "4"
+                          }
+                        ],
+                        "schema": {
+                          "$ref": "#/definitions/Task",
+                          "dotnetType": "System.Threading.Tasks.Task"
+                        },
+                        "type": "invoke-method"
+                      }
+                    ]
+                  },
+                  "name": "button6",
+                  "style": {
+                    "height": "25px",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "width": "30px"
+                  },
+                  "text": "",
+                  "type": "button"
+                },
+                {
+                  "buttonStyle": "${GetColor(5)}",
+                  "events": {
+                    "click": [
+                      {
+                        "name": "LoadImage",
+                        "parameters": [
+                          {
+                            "name": "i",
+                            "type": "int",
+                            "value": "5"
+                          }
+                        ],
+                        "schema": {
+                          "$ref": "#/definitions/Task",
+                          "dotnetType": "System.Threading.Tasks.Task"
+                        },
+                        "type": "invoke-method"
+                      }
+                    ]
+                  },
+                  "name": "button7",
+                  "style": {
+                    "height": "25px",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "width": "30px"
+                  },
+                  "text": "",
+                  "type": "button"
+                }
+              ],
+              "name": "row3",
+              "style": {
+                "textAlign": "left",
+                "width": "25%"
+              },
+              "type": "row"
+            }
+          ],
+          "name": "row4",
+          "style": {
+            "marginTop": "20px"
+          },
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "components": [
+                {
+                  "name": "textbox0",
+                  "placeholder": "Guess - E.g. Ford GT",
+                  "style": {
+                    "width": "381px"
+                  },
+                  "type": "textbox",
+                  "value": "${CurrentGuess}"
+                }
+              ],
+              "name": "templateForm0",
+              "type": "template-form"
+            },
+            {
+              "buttonStyle": "primary",
+              "buttonType": "submit",
+              "events": {
+                "click": [
+                  {
+                    "name": "MakeGuess",
+                    "schema": {
+                      "$ref": "#/definitions/Task",
+                      "dotnetType": "System.Threading.Tasks.Task"
+                    },
+                    "type": "invoke-method"
+                  }
+                ]
+              },
+              "name": "button0",
+              "style": {
+                "marginLeft": "10px",
+                "paddingLeft": "10px",
+                "paddingRight": "10px"
+              },
+              "template": "",
+              "text": "Guess!",
+              "type": "button",
+              "visible": "${!GameEnded}"
+            },
+            {
+              "buttonStyle": "light",
+              "events": {
+                "click": [
+                  {
+                    "name": "SkipGuess",
+                    "schema": {
+                      "$ref": "#/definitions/Task",
+                      "dotnetType": "System.Threading.Tasks.Task"
+                    },
+                    "type": "invoke-method"
+                  }
+                ]
+              },
+              "name": "button1",
+              "style": {
+                "marginLeft": "5px",
+                "paddingLeft": "10px",
+                "paddingRight": "10px"
+              },
+              "template": "",
+              "text": "Skip",
+              "type": "button",
+              "visible": "${!GameEnded}"
+            }
+          ],
+          "name": "row5",
+          "style": {
+            "marginTop": "20px"
+          },
+          "type": "row"
+        },
+        {
+          "class": "justify-content-center",
+          "components": [
+            {
+              "data": "${GuessList}",
+              "name": "listbox0",
+              "style": {
+                "marginTop": "20px",
+                "width": "336px"
+              },
+              "textProperty": "Guess",
+              "type": "listbox",
+              "valueProperty": "",
+              "visible": "${GuessList.Count()!=0}"
+            }
+          ],
+          "name": "row6",
           "type": "row"
         }
       ],
@@ -50,7 +419,16 @@
     }
   ],
   "events": {
-    "load": []
+    "load": [
+      {
+        "name": "Initialize",
+        "schema": {
+          "$ref": "#/definitions/Task",
+          "dotnetType": "System.Threading.Tasks.Task"
+        },
+        "type": "invoke-method"
+      }
+    ]
   },
   "layout": "Main",
   "name": "Cardle"
