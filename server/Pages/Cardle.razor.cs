@@ -84,14 +84,14 @@ namespace ReCardle.Pages
             int result = correct ? 2 : correctMake ? 1 : 0;
             State.SetGuessResult(result, CurrentGuess);
             CurrentGuess = "";
-            //await SaveGameState();
+            await SaveGameState();
         }
 
         public async Task SkipGuess()
         {
             State.SetGuessResult(0, CurrentGuess);
             CurrentGuess = "";
-            //await SaveGameState();
+            await SaveGameState();
         }
 
         public async Task LoadGameState() => State = await localStorage.GetItemAsync<State>("state") ?? new();

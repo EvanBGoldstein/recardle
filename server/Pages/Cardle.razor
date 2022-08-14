@@ -24,8 +24,8 @@
       <RadzenLabel style="font-size: 30px" Text="@($"{Answer}")" Visible="@(!string.IsNullOrEmpty(Answer))">
       </RadzenLabel>
     </div>
-    <div class="row justify-content-center">
-      <RadzenImage Path="@(CurrentImage?.Url??"")" style="height: 600px">
+    <div class="row justify-content-center" style="margin-left: 0; margin-right: 0; width: 100%">
+      <RadzenImage Path="@(CurrentImage?.Url??"")" style="width: 100%">
       </RadzenImage>
     </div>
     <div class="row justify-content-center">
@@ -37,7 +37,7 @@
       </RadzenLabel>
     </div>
     <div class="row justify-content-center" style="margin-top: 20px">
-      <div class="row justify-content-around" style="text-align: left; width: 25%">
+      <div class="row justify-content-around" style="text-align: left; width: 250px">
         <RadzenButton ButtonStyle="@(GetColor(0))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button2Click">
         </RadzenButton>
         <RadzenButton ButtonStyle="@(GetColor(1))" style="height: 25px; padding-left: 0; padding-right: 0; width: 30px" Click="@Button3Click">
@@ -55,7 +55,7 @@
     <div class="row justify-content-center" style="margin-top: 20px">
       <RadzenTemplateForm TItem="dynamic">
         <ChildContent>
-          <RadzenTextBox Placeholder="Guess - E.g. Ford GT" style="width: 381px" @bind-Value="@CurrentGuess" Name="Textbox0">
+          <RadzenTextBox Placeholder="Guess - E.g. Ford GT" style="width: 250px" @bind-Value="@CurrentGuess" Name="Textbox0">
           </RadzenTextBox>
         </ChildContent>
       </RadzenTemplateForm>

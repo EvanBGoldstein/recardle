@@ -24,6 +24,9 @@
           "type": "footer"
         }
       ],
+      "style": {
+        "height": "100%"
+      },
       "type": "layout"
     }
   ],
