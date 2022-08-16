@@ -25,7 +25,7 @@
       </RadzenLabel>
     </div>
     <div class="row justify-content-center" style="margin-left: 0; margin-right: 0; width: 100%">
-      <RadzenImage Path="@(CurrentImage?.Url??"")" style="width: 100%">
+      <RadzenImage Path="@(CurrentImage?.Url??"")" style="width: 400px">
       </RadzenImage>
     </div>
     <div class="row justify-content-center">
@@ -53,19 +53,17 @@
       </div>
     </div>
     <div class="row justify-content-center" style="margin-top: 20px">
-      <RadzenTemplateForm TItem="dynamic">
-        <ChildContent>
-          <RadzenTextBox Placeholder="Guess - E.g. Ford GT" style="width: 250px" @bind-Value="@CurrentGuess" Name="Textbox0">
-          </RadzenTextBox>
-        </ChildContent>
-      </RadzenTemplateForm>
-      <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" style="margin-left: 10px; padding-left: 10px; padding-right: 10px" Text="Guess!" Visible="@(!GameEnded)" Click="@Button0Click">
+      <RadzenTextBox Placeholder="Guess - E.g. Ford GT" style="width: 50%" @bind-Value="@CurrentGuess" Visible="@(!GameEnded)" Name="Textbox0">
+      </RadzenTextBox>
+      <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" style="margin-left: 10px; padding-left: 5px; padding-right: 5px" Text="Guess!" Visible="@(!GameEnded)" Click="@Button0Click">
       </RadzenButton>
-      <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 5px; padding-left: 10px; padding-right: 10px" Text="Skip" Visible="@(!GameEnded)" Click="@Button1Click">
+      <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 5px; padding-left: 5px; padding-right: 5px" Text="Skip" Visible="@(!GameEnded)" Click="@Button1Click">
+      </RadzenButton>
+      <RadzenButton ButtonStyle="ButtonStyle.Success" Text="Share Score!" Visible="@GameEnded" Click="@ShareButtonClick">
       </RadzenButton>
     </div>
     <div class="row justify-content-center">
-      <RadzenListBox Data="@GuessList" style="margin-top: 20px; width: 336px" TextProperty="Guess" Visible="@(GuessList.Count()!=0)" Name="Listbox0" TValue="dynamic">
+      <RadzenListBox Data="@GuessList" style="margin-top: 20px; width: 336px" TextProperty="Answer" Visible="@(GuessList.Count()!=0)" Name="Listbox0"  TValue="string">
       </RadzenListBox>
     </div>
   </ChildContent>

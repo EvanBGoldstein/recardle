@@ -90,5 +90,10 @@ namespace ReCardle.Pages
         {
             await SkipGuess();
         }
+
+        protected async System.Threading.Tasks.Task ShareButtonClick(MouseEventArgs args)
+        {
+            await ShareScore();
+        }
     }
 }

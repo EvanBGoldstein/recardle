@@ -10,22 +10,14 @@
             }
           ],
           "name": "body0",
+          "style": {
+            "height": "100%"
+          },
           "type": "body"
-        },
-        {
-          "components": [
-            {
-              "name": "footerText",
-              "text": "ReCardle, Copyright Ⓒ 2022",
-              "type": "label"
-            }
-          ],
-          "name": "footer0",
-          "type": "footer"
         }
       ],
       "style": {
-        "height": "100%"
+        "height": "800px"
       },
       "type": "layout"
     }

@@ -68,7 +68,7 @@
               "name": "image0",
               "path": "${CurrentImage?.Url??\"\"}",
               "style": {
-                "width": "100%"
+                "width": "400px"
               },
               "type": "image"
             }
@@ -327,19 +327,14 @@
           "class": "justify-content-center",
           "components": [
             {
-              "components": [
-                {
-                  "name": "textbox0",
-                  "placeholder": "Guess - E.g. Ford GT",
-                  "style": {
-                    "width": "250px"
-                  },
-                  "type": "textbox",
-                  "value": "${CurrentGuess}"
-                }
-              ],
-              "name": "templateForm0",
-              "type": "template-form"
+              "name": "textbox0",
+              "placeholder": "Guess - E.g. Ford GT",
+              "style": {
+                "width": "50%"
+              },
+              "type": "textbox",
+              "value": "${CurrentGuess}",
+              "visible": "${!GameEnded}"
             },
             {
               "buttonStyle": "primary",
@@ -359,8 +354,8 @@
               "name": "button0",
               "style": {
                 "marginLeft": "10px",
-                "paddingLeft": "10px",
-                "paddingRight": "10px"
+                "paddingLeft": "5px",
+                "paddingRight": "5px"
               },
               "template": "",
               "text": "Guess!",
@@ -384,13 +379,33 @@
               "name": "button1",
               "style": {
                 "marginLeft": "5px",
-                "paddingLeft": "10px",
-                "paddingRight": "10px"
+                "paddingLeft": "5px",
+                "paddingRight": "5px"
               },
               "template": "",
               "text": "Skip",
               "type": "button",
               "visible": "${!GameEnded}"
+            },
+            {
+              "buttonStyle": "success",
+              "events": {
+                "click": [
+                  {
+                    "name": "ShareScore",
+                    "schema": {
+                      "$ref": "#/definitions/Task",
+                      "dotnetType": "System.Threading.Tasks.Task"
+                    },
+                    "type": "invoke-method"
+                  }
+                ]
+              },
+              "name": "shareButton",
+              "template": "",
+              "text": "Share Score!",
+              "type": "button",
+              "visible": "${GameEnded}"
             }
           ],
           "name": "row5",
@@ -403,13 +418,19 @@
           "class": "justify-content-center",
           "components": [
             {
+              "attributes": [
+                {
+                  "name": "TValue",
+                  "value": "string"
+                }
+              ],
               "data": "${GuessList}",
               "name": "listbox0",
               "style": {
                 "marginTop": "20px",
                 "width": "336px"
               },
-              "textProperty": "Guess",
+              "textProperty": "Answer",
               "type": "listbox",
               "valueProperty": "",
               "visible": "${GuessList.Count()!=0}"

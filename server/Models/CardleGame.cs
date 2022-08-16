@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.StringComparison;
 
 namespace ReCardle.Models
 {
-    public class CardleData
+    public class CardleGame
     {
         [JsonProperty("image1")]
         public Image Image1 { get; set; }
@@ -30,7 +32,10 @@ namespace ReCardle.Models
         public List<string> AcceptedAnswersCleaned => AcceptedAnswers.Select(a => a.Replace("-", "")).ToList();
 
 
-        public List<string> AcceptedMakes => AcceptedAnswers.Select(s => s.Replace("-", "").Split(" ").First()).ToList();
+        public List<string> AcceptedMakes =>
+            AcceptedAnswers.Select(s => s.Replace("-", "").Split(" ").First()).ToList();
+
+        public string AcceptedMake => AcceptedMakes[0];
 
         [JsonProperty("answerImage")]
         public string AnswerImagePath { get; set; }
@@ -39,6 +44,12 @@ namespace ReCardle.Models
 
         private Image[] images;
         public Image[] Images => images ??= new Image[6] { Image1, Image2, Image3, Image4, Image5, AnswerImage };
+
+        internal bool ValidateGuess(string guess) 
+            => AcceptedAnswers.Any(a => guess.Contains(a.Replace("-", ""), CurrentCultureIgnoreCase));
+
+        internal bool ValidateMake(string guess)
+            => AcceptedMakes.Any(a => guess.Contains(a.Replace("-", ""), CurrentCultureIgnoreCase));
     }
 
 
