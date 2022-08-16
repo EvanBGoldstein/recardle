@@ -5,7 +5,11 @@ using System.Linq;
 
 namespace ReCardle.Models
 {
-    public class Image
+
+    /// <summary>
+    /// Represents an image in a game
+    /// </summary>
+    public class CardleImageInfo
     {
         [JsonProperty("url")]
         public string Path { get; set; }

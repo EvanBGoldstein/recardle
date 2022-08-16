@@ -1,19 +1,15 @@
-﻿using Newtonsoft.Json.Converters;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-
-namespace ReCardle.Models
+﻿namespace ReCardle.Models
 {
-    //[JsonConverter(typeof(StringEnumConverter))]
+    /// <summary> Represents the status of a single game </summary>
     public enum GameStatus
     {
-        //[EnumMember(Value = "INCOMPLETE")]
+        /// <summary> The game has not been completed yet, and the user has not guessed the correct make</summary>
         INCOMPLETE,
-        //[EnumMember(Value = "LOST")]
+        /// <summary> The game is over, and the user did not guess the correct model</summary>
         LOST,
-        //[EnumMember(Value = "CORRECT_MAKE")]
+        /// <summary> The game has not been completed yet, but user has guessed the correct make</summary>
         MAKE,
-        //[EnumMember(Value = "WON")]
+        /// <summary> The game is over, and the user has guessed the correct model </summary>
         WON,
     }
 }

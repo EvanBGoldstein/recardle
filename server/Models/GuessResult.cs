@@ -4,16 +4,16 @@ using System.Runtime.Serialization;
 
 namespace ReCardle.Models
 {
-    //[JsonConverter(typeof(StringEnumConverter))]
+    /// <summary> Represents the result of a single guess </summary>
     public enum GuessResult
     {
-        //[EnumMember(Value = "UNATTEMPTED")]
+        /// <summary> The user has not attempted this guess yet </summary>
         UNATTEMPTED,
-        //[EnumMember(Value = "INCORRECT")]
+        /// <summary> The user guessed incorrectly </summary>
         INCORRECT,
-        //[EnumMember(Value = "CORRECT_MAKE")]
+        /// <summary> The user got the correct make </summary>
         PARTIAL,
-        //[EnumMember(Value = "CORRECT")]
+        /// <summary> The user guessed correctly, including both make and model </summary>
         CORRECT,
     }
 }
